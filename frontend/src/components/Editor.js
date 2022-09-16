@@ -1,15 +1,16 @@
+import {
+  ADD_TAG,
+  EDITOR_PAGE_LOADED,
+  EDITOR_PAGE_UNLOADED,
+  ITEM_SUBMITTED,
+  REMOVE_TAG,
+  UPDATE_FIELD_EDITOR,
+} from "../constants/actionTypes";
+
 import ListErrors from "./ListErrors";
 import React from "react";
 import agent from "../agent";
 import { connect } from "react-redux";
-import {
-  ADD_TAG,
-  EDITOR_PAGE_LOADED,
-  REMOVE_TAG,
-  ITEM_SUBMITTED,
-  EDITOR_PAGE_UNLOADED,
-  UPDATE_FIELD_EDITOR,
-} from "../constants/actionTypes";
 
 const mapStateToProps = (state) => ({
   ...state.editor,
@@ -49,10 +50,13 @@ class Editor extends React.Component {
 
     this.submitForm = (ev) => {
       ev.preventDefault();
+
+      const placeholderImage = '../../placeholder.png';
+
       const item = {
         title: this.props.title,
         description: this.props.description,
-        image: this.props.image,
+        image: this.props.image.length === 0 ? placeholderImage : this.props.image,
         tagList: this.props.tagList,
       };
 
