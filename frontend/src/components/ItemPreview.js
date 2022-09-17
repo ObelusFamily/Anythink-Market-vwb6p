@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const ItemPreview = (props) => {
   
-  const item = props.item.image === "" ?
+  const item = props.item.image === null ?
     {
       ...props.item,
       image: '../../placeholder.png',
