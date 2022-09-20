@@ -9,7 +9,7 @@ var ItemSchema = new mongoose.Schema(
 		title: String,
 		description: String,
 		image: {
-			String,
+			type: String,
 			default: '/placeholder.png'
 		},
 		favoritesCount: { type: Number, default: 0 },
